@@ -24,6 +24,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        $data=[
+            'name'=>$request->name;
+        ];
         Contact::create($input);
         return redirect('contact')->with('flash_message', 'Contact Addedd!');  
     }

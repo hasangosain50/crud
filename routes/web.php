@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,12 @@ Route::get('/', function () {
 
 Route::resource('/students','App\Http\Controllers\StudentController');
 Route::resource('/contact','App\Http\Controllers\ContactController' );
+
+
+Route::GET('product-get',[ProductController::class,'index'])->name('product.get');
+Route::GET('product-create',[ProductController::class,'create'])->name('product.create');
+Route::POST('product-store',[ProductController::class,'store'])->name('product.store');
+
+Route::GET('product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+
+Route::POST('product-update/{id}',[ProductController::class,'update'])->name('product.update');
